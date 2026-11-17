@@ -162,7 +162,8 @@ legend{font-weight:700;font-size:.9rem;margin-bottom:.4rem}
   .hero-grid,.plan-grid{grid-template-columns:1fr}
   .cards.three{grid-template-columns:1fr 1fr}
   .cards.four{grid-template-columns:1fr 1fr}
-  .step{grid-template-columns:1fr}
+  .step{grid-template-columns:1fr;gap:1.2rem;align-items:start}
+  .step img{height:auto;min-height:0;aspect-ratio:16/10}
   .step>div{padding:0 1.4rem 1.4rem}
   .gallery{grid-template-columns:repeat(3,1fr)}
 }
@@ -180,6 +181,7 @@ legend{font-weight:700;font-size:.9rem;margin-bottom:.4rem}
   body{font-size:16px}
   .cards.three,.cards.four{grid-template-columns:1fr}
   .hero-media{height:300px}
+  .hero-media figure{margin:0!important}
   .row2,fieldset{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   .tabs button{padding:.6em 1em}
@@ -236,6 +238,7 @@ legend{font-weight:700;font-size:.9rem;margin-bottom:.4rem}
   .facts div:nth-child(2){border-right:0}
   .pf{grid-template-columns:1fr}
   .plan-day{grid-template-columns:1fr}
+  .plan-day img{height:auto;min-height:0;aspect-ratio:16/9}
   .plan-day>div{padding:0 1.2rem 1.1rem}
   .pop-grid{grid-template-columns:1fr;padding:2.4rem 1.3rem 1.4rem}
   .pop-grid img{display:none}
@@ -264,3 +267,16 @@ legend{font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 
 @media (max-width:1180px){ .main-nav{max-height:calc(100vh - 68px);overflow:auto} }
 @media (max-width:420px){ .brand{font-size:1.35rem;gap:.45rem} .brand img{width:28px;height:28px} }
+
+/* Where-to-stay table: stack into readable blocks on phones */
+@media (max-width:700px){
+  .table-wrap{overflow:visible;box-shadow:none}
+  .compare{min-width:0;background:transparent}
+  .compare thead{display:none}
+  .compare,.compare tbody,.compare tr,.compare th,.compare td{display:block;width:100%}
+  .compare tr{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:14px;overflow:hidden}
+  .compare tbody th{background:var(--blue);color:#fff;font-family:var(--head);font-size:1.35rem;font-weight:400;letter-spacing:.04em;padding:.7rem 1rem;white-space:normal}
+  .compare td{padding:.7rem 1rem;border-bottom:1px solid #e3ecef}
+  .compare td:last-child{border-bottom:0}
+  .compare td::before{content:attr(data-place);display:block;font-weight:700;color:var(--teal);font-size:.85rem;margin-bottom:.1rem}
+}
