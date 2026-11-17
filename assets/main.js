@@ -200,7 +200,7 @@
       acts.forEach(function (a) { used[a] = true; });
       var main = R[regions[regions.length - 1]];
       var title = 'Day ' + (i + 1) + ' · ' + regions.map(function (k) { return R[k].name; }).filter(function (v, j, a) { return a.indexOf(v) === j; }).join(' → ');
-      html += '<article class="plan-day"><img src="' + main.img + '" alt="" loading="lazy"><div><h4>' + title + '</h4>' +
+      html += '<article class="plan-day"><img src="/.netlify/images?url=' + encodeURIComponent(main.img) + '&w=600&q=72" alt="" loading="lazy" decoding="async"><div><h4>' + title + '</h4>' +
         '<p class="muted" style="margin:0 0 .3rem">' + regions.map(function (k) { return R[k].towns; }).filter(function (v, j, a) { return a.indexOf(v) === j; }).join(' · ') + '</p>' +
         '<ul>' + acts.map(function (a) { return '<li>' + a + '</li>'; }).join('') + '</ul>' +
         tips.map(function (t) { return '<p class="tip">' + t + '</p>'; }).join('') +

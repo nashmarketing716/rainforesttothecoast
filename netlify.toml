@@ -18,3 +18,11 @@
   for = "/api/*"
   [headers.values]
     Cache-Control = "public, max-age=900"
+
+[images]
+  remote_images = ["https://visitgraysharbor\\.com/.*", "https://www\\.seabrookwa\\.com/.*", "https://images\\.squarespace-cdn\\.com/.*"]
+
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
