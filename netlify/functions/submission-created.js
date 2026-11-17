@@ -23,7 +23,7 @@ exports.handler = async (event) => {
       method: 'POST',
       headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        from, to: [d.email], reply_to: 'info@visitgraysharbor.com',
+        from, to: [d.email], bcc: ['info@visitgraysharbor.com'], reply_to: 'info@visitgraysharbor.com',
         subject: (name ? name + ', your' : 'Your') + ' Rainforest to the Coast road trip guide',
         html: RTCPlan.toEmail(p, name), text: RTCPlan.toText(p, name)
       })
