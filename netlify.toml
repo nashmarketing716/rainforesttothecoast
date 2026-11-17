@@ -26,3 +26,12 @@
   for = "/assets/img/*"
   [headers.values]
     Cache-Control = "public, max-age=2592000"
+
+[functions]
+  directory = "netlify/functions"
+  included_files = ["assets/planner-core.js"]
+
+[[redirects]]
+  from = "/netlify/*"
+  to = "/404.html"
+  status = 404
