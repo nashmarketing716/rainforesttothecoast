@@ -302,3 +302,14 @@ legend{font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 .rt{font-weight:700;font-style:italic;color:var(--blue);white-space:nowrap}
 .rt em{font-family:'Yellowtail','Brush Script MT',cursive;font-style:normal;font-weight:400;color:var(--green);font-size:1.35em;letter-spacing:.01em;margin-left:.05em;line-height:1;display:inline-block;transform:rotate(-3deg) translateY(.04em)}
 @media (max-width:420px){.rt{white-space:normal}.rt em{white-space:nowrap}}
+
+/* Illustrated route map */
+.map-card{margin:0 auto 2.4rem;max-width:860px;background:#fff;border-radius:22px;box-shadow:var(--shadow);padding:1.4rem 1.4rem 1rem;border-top:6px solid var(--green)}
+.map-head{text-align:center;margin-bottom:1rem}
+.map-title{font-size:clamp(1.9rem,4.4vw,2.8rem);color:var(--blue);margin:0 0 .7rem;line-height:1.05}
+.map-title .map-sub{color:var(--teal)}
+.map-cta{font-size:1.05rem}
+.map-cta em{font-family:'Yellowtail','Brush Script MT',cursive;font-style:normal;font-weight:400;font-size:1.45em;color:#fff;display:inline-block;transform:rotate(-3deg);margin-left:.15em;line-height:.8}
+.trip-map{display:block;width:100%;height:auto;border-radius:16px}
+.map-note{text-align:center;font-size:.85rem;color:var(--muted);margin:.8rem 0 0}
+@media (max-width:600px){.map-card{padding:1rem .7rem .8rem;border-radius:18px}.map-title .map-dash{display:none}.map-title .map-sub{display:block}}
