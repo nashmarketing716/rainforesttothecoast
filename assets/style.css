@@ -285,3 +285,10 @@ legend{font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 /* Rainforest hero card: label at top so it doesn't cover the hiker */
 .hero-media .hero-a figcaption{top:12px;bottom:auto}
 .photo-credit{position:absolute;right:10px;bottom:8px;font-size:.7rem;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.7);opacity:.9}
+
+/* Footer partner logos: Grays Harbor on top (larger), Ocean Shores + Westport below, as a triangle */
+.foot-logos{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:440px;margin-bottom:1.1rem}
+.foot-logos a{display:flex;align-items:center;justify-content:center;background:#fff;border-radius:10px;padding:10px 12px;min-height:72px}
+.foot-logos img{height:48px;width:auto;max-width:100%;object-fit:contain;background:none;border-radius:0;padding:0}
+.foot-logos a:first-child{grid-column:1/-1;justify-self:center;width:62%;min-height:96px}
+.foot-logos a:first-child img{height:76px}
