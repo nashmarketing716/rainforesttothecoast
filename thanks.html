@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://visitgraysharbor.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Yellowtail&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=20261117f">
+<link rel="stylesheet" href="/assets/style.css?v=20261117g">
 </head>
 <body>
 <a class="skip" href="/#main">Skip to content</a>
@@ -46,13 +46,15 @@
 </header>
 
 <main id="main" class="page"><div class="wrap narrow">
-<p class="eyebrow">You're on the list</p>
-<h1>Thanks! Your road trip starts here.</h1>
+<p class="eyebrow">Message received</p>
+<h1>Thank you<span id="ty-name"></span>! We've received your message.</h1>
+<p class="lead-ty">We'll email you a <strong>road trip guide</strong> built around the interests you selected<span id="ty-colon">.</span></p>
+<ul class="checks" id="ty-interests" hidden></ul>
 <div id="map-dl" hidden>
   <p>Your <strong>Rainforest to the Coast Hidden Gems map</strong> is ready:</p>
   <p><a class="btn" href="/assets/rainforest-to-coast-map.pdf" download>Download the map (PDF)</a></p>
 </div>
-<p>Watch your inbox for seasonal trip ideas, event picks and clam-dig alerts from Grays Harbor, Ocean Shores and Westport.</p>
+<p>Keep an eye on your inbox, including the promotions folder. Questions? Email <a href="mailto:info@visitgraysharbor.com">info@visitgraysharbor.com</a>.</p>
 <p>While you're here:</p>
 <ul class="checks">
   <li><a href="/#planner">Build your day-by-day road trip</a></li>
@@ -64,6 +66,7 @@
 </ul>
 <p><a class="btn btn-ghost" href="/">Back to Rainforest to the Coast</a></p>
 <script>if(/[?&]map=1/.test(location.search)){fetch('/assets/rainforest-to-coast-map.pdf',{method:'HEAD'}).then(function(r){if(r.ok)document.getElementById('map-dl').hidden=false;});}</script>
+<script>try{var d=JSON.parse(sessionStorage.getItem('rtc-lead')||'{}');if(d.name){document.getElementById('ty-name').textContent=', '+d.name;}if(d.interests&&d.interests.length){var ul=document.getElementById('ty-interests');d.interests.forEach(function(x){var li=document.createElement('li');li.textContent=x;ul.appendChild(li);});ul.hidden=false;document.getElementById('ty-colon').textContent=':';}}catch(e){}</script>
 </div></main>
 </main>
 
@@ -92,6 +95,6 @@
 </footer>
 
 
-<script src="/assets/main.js?v=20261117f" defer></script>
+<script src="/assets/main.js?v=20261117g" defer></script>
 </body>
 </html>

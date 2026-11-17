@@ -267,3 +267,15 @@
   }, { rootMargin: '-45% 0px -50% 0px' });
   sections.forEach(function (s) { obs.observe(s); });
 })();
+
+// ---------- Lead form: remember name + interests for the thank-you page ----------
+(function () {
+  var f = document.querySelector('form.lead');
+  if (!f) return;
+  f.addEventListener('submit', function () {
+    try {
+      var ints = [].map.call(f.querySelectorAll('input[name="interests"]:checked'), function (i) { return i.value; });
+      sessionStorage.setItem('rtc-lead', JSON.stringify({ name: (f.first_name.value || '').trim(), interests: ints }));
+    } catch (e) {}
+  });
+})();
