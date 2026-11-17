@@ -57,6 +57,7 @@ h3{font-size:1.65rem;color:var(--ink)}
 .hero-media figure{margin:0;position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:var(--aqua)}
 .hero-media .hero-b{margin-top:48px}
 .hero-media .hero-a{margin-bottom:48px}
+.hero-media picture{display:block;width:100%;height:100%}
 .hero-media img{width:100%;height:100%;object-fit:cover}
 .hero-media figcaption{position:absolute;left:12px;bottom:12px;background:rgba(11,47,66,.85);color:#fff;font-family:var(--head);font-size:1.4rem;letter-spacing:.06em;padding:.15em .6em;border-radius:6px}
 
@@ -280,3 +281,6 @@ legend{font-weight:700;font-size:.9rem;margin-bottom:.4rem}
   .compare td:last-child{border-bottom:0}
   .compare td::before{content:attr(data-place);display:block;font-weight:700;color:var(--teal);font-size:.85rem;margin-bottom:.1rem}
 }
+
+/* Rainforest hero card: label at top so it doesn't cover the hiker */
+.hero-media .hero-a figcaption{top:12px;bottom:auto}
