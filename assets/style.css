@@ -292,3 +292,6 @@ legend{font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 .foot-logos img{height:48px;width:auto;max-width:100%;object-fit:contain;background:none;border-radius:0;padding:0}
 .foot-logos a:first-child{grid-column:1/-1;justify-self:center;width:62%;min-height:96px}
 .foot-logos a:first-child img{height:76px}
+
+/* Smaller 'vs.' in the Where-to-stay headline */
+.vs{font-size:.5em;color:var(--teal);vertical-align:.35em;margin:0 .15em;letter-spacing:.04em}
