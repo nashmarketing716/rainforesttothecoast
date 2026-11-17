@@ -1,0 +1,12 @@
+# --- Domains: the alias domains 301 to the main site. (rainforesttothecoast.com vs www is handled by Netlify's primary-domain setting, so no rule here = no redirect loop.) ---
+https://rainforesttocoast.com/*      https://www.rainforesttothecoast.com/:splat  301!
+https://www.rainforesttocoast.com/*  https://www.rainforesttothecoast.com/:splat  301!
+https://rainforesttotheocean.com/*      https://www.rainforesttothecoast.com/:splat  301!
+https://www.rainforesttotheocean.com/*  https://www.rainforesttothecoast.com/:splat  301!
+
+# Live event data from visitgraysharbor.com, served same-origin (query string is passed through)
+/api/events     https://visitgraysharbor.com/wp-json/tribe/events/v1/events   200
+# Live events from Ocean Shores Tourism (same calendar plugin)
+/api/events-os  https://tourismoceanshores.com/wp-json/tribe/events/v1/events  200
+# Live photo library search, e.g. /api/media?search=quinault
+/api/media      https://visitgraysharbor.com/wp-json/wp/v2/media   200
