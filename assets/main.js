@@ -35,11 +35,14 @@
 
   // Hide sticky CTA when the form is on screen
   var sticky = document.querySelector('.sticky-cta');
-  var plan = document.getElementById('plan');
-  if (sticky && plan && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      sticky.classList.toggle('hide', entries[0].isIntersecting);
-    }, { threshold: 0.15 }).observe(plan);
+  var hideFor = ['planner', 'plan'].map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  if (sticky && hideFor.length && 'IntersectionObserver' in window) {
+    var vis = {};
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { vis[e.target.id] = e.isIntersecting; });
+      sticky.classList.toggle('hide', Object.keys(vis).some(function (k) { return vis[k]; }));
+    }, { threshold: 0.15 });
+    hideFor.forEach(function (el) { io.observe(el); });
   }
 
   // UTM + landing page capture into the lead form
