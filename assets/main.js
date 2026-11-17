@@ -251,3 +251,19 @@
   });
   var lp = dlg.querySelector('input[name=landing_page]'); if (lp) lp.value = location.href;
 })();
+
+// ---------- Menu: underline the section you clicked / are viewing ----------
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.main-nav a[href^="#"]:not(.btn)'));
+  if (!links.length) return;
+  var byId = {};
+  links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+  function setActive(id) { links.forEach(function (a) { a.classList.toggle('active', a === byId[id]); }); }
+  links.forEach(function (a) { a.addEventListener('click', function () { setActive(a.getAttribute('href').slice(1)); }); });
+  if (!('IntersectionObserver' in window)) return;
+  var sections = Object.keys(byId).map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) setActive(e.target.id); });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(function (s) { obs.observe(s); });
+})();

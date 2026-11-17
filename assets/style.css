@@ -313,3 +313,10 @@ legend{font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 .trip-map{display:block;width:100%;height:auto;border-radius:16px}
 .map-note{text-align:center;font-size:.85rem;color:var(--muted);margin:.8rem 0 0}
 @media (max-width:600px){.map-card{padding:1rem .7rem .8rem;border-radius:18px}.map-title .map-dash{display:none}.map-title .map-sub{display:block}}
+
+/* Menu: green underline on the active section */
+.main-nav a:not(.btn){position:relative;padding-bottom:4px}
+.main-nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:3px;border-radius:3px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.main-nav a:not(.btn):hover::after,.main-nav a.active::after{transform:scaleX(1)}
+.main-nav a.active{color:var(--green)}
+@media (max-width:1180px){.main-nav a:not(.btn)::after{bottom:8px;right:auto;width:3.5rem}}
