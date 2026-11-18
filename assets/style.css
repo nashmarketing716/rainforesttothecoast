@@ -39,7 +39,7 @@ h3{font-size:1.65rem;color:var(--ink)}
 .site-header{position:sticky;top:0;z-index:50;background:var(--dark);color:#fff}
 .header-row{display:flex;align-items:center;justify-content:space-between;height:68px}
 .brand{display:flex;align-items:center;gap:.6rem;white-space:nowrap;flex-shrink:0;color:#fff;text-decoration:none;font-family:var(--head);font-size:1.7rem;letter-spacing:.04em}
-.brand em{font-family:'Yellowtail','Brush Script MT',cursive;font-style:normal;font-size:.72em;letter-spacing:0;color:var(--green);margin:0 .12em;position:relative;top:-.06em;text-transform:none}
+.brand em{font-family:'Yellowtail','Brush Script MT',cursive;font-style:normal;font-size:.72em;letter-spacing:0;color:var(--green);margin:0 .165em 0 .075em;position:relative;top:-.06em;text-transform:none}
 .main-nav{display:flex;align-items:center;gap:1.1rem}
 .main-nav a{color:#fff;text-decoration:none;font-weight:600;font-size:.95rem}
 @media (hover:hover){.main-nav a:not(.btn):hover{color:var(--green)}}
