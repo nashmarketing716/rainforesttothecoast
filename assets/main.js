@@ -328,3 +328,15 @@
   });
   document.getElementById('ps-change').addEventListener('click', exit);
 })();
+
+// ---------- Lead form: "All of it!" checks or clears every interest ----------
+(function () {
+  var all = document.getElementById('interests-all'); if (!all) return;
+  var boxes = all.form.querySelectorAll('input[name=interests]');
+  function sync() { all.checked = [].every.call(boxes, function (c) { return c.checked; }); }
+  all.addEventListener('change', function () { [].forEach.call(boxes, function (c) { c.checked = all.checked; }); });
+  [].forEach.call(boxes, function (c) { c.addEventListener('change', sync); });
+  // The trip planner can tick interests for the visitor, so keep "All of it!" in step
+  document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('#plan-email, #ps-change')) setTimeout(sync, 0); });
+  sync();
+})();
