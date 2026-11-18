@@ -425,3 +425,5 @@ legend{font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 .tv-stories li{position:relative;padding-left:1.3em}
 .tv-stories li::before{content:"";position:absolute;left:0;top:.5em;width:.55em;height:.55em;border-radius:50%;background:var(--green)}
 @media (min-width:700px){.tv-stories{grid-template-columns:1fr 1fr}}
+.tv-card figcaption em{font-style:italic}
+.tv-stories.tv-stories-1{grid-template-columns:1fr!important;max-width:320px}
