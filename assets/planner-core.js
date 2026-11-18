@@ -14,7 +14,7 @@
       season: { summer: 'Summer events: the McCleary Bear Festival (July) and the Grays Harbor County Fair in Elma (August).' } },
     port: { name: 'Port Cities', towns: 'Aberdeen · Hoquiam · Cosmopolis', stop: 'Aberdeen, WA',
       img: U + '2024/08/Historic-Homes-5.webp', link: 'https://visitgraysharbor.com/port-cities/',
-      acts: { history: ['Walk past the downtown murals and timber-baron homes in Aberdeen', 'Catch a show in the historic 7th Street Theatre district in Hoquiam'],
+      acts: { history: ['Visit the Kurt Cobain Museum and Kurt Cobain Memorial Park in Aberdeen', 'Walk past the downtown murals and timber-baron homes in Aberdeen', 'Catch a show in the historic 7th Street Theatre district in Hoquiam'],
               wildlife: ['Walk the boardwalk at Grays Harbor National Wildlife Refuge'],
               seafood: ['Find a local cafe, brewery or distillery downtown'],
               any: ['Grab coffee in Aberdeen before heading north on US-101'] },

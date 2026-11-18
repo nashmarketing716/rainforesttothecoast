@@ -4,7 +4,7 @@
 
 ## Plan a trip
 - [Trip planner and itineraries (2, 3, 4 and 5 days)](https://www.rainforesttothecoast.com/#planner): builds a day-by-day plan from start city, days, season and interests, with a Google Maps route.
-- [The route: five regions](https://www.rainforesttothecoast.com/#route): 1 Quinault (rainforest), 2 Northern Beaches (Ocean Shores, Seabrook, Pacific Beach, Moclips), 3 Southern Beaches (Westport, Grayland, the Cranberry Coast), 4 Port Cities (Aberdeen, Hoquiam), 5 East County (Montesano, Elma, Lake Wynoochee).
+- [The route: five regions](https://www.rainforesttothecoast.com/#route): 1 Quinault (rainforest), 2 Northern Beaches (Ocean Shores, Seabrook, Pacific Beach, Moclips), 3 Southern Beaches (Westport, Grayland, the Cranberry Coast), 4 Port Cities (Aberdeen, Kurt Cobain's hometown, with the Kurt Cobain Museum and Kurt Cobain Memorial Park; Hoquiam), 5 East County (Montesano, Elma, Lake Wynoochee).
 - [Where to stay](https://www.rainforesttothecoast.com/#basecamp): Lake Quinault for hikers, Ocean Shores and Seabrook for families and beach walkers, Westport and Grayland for anglers, surfers and seafood.
 - [When to go](https://www.rainforesttothecoast.com/#seasons): spring shorebird migration, summer beaches and cranberry blossoms, fall cranberry harvest, winter storm-watching and king tides.
 - [Events](https://www.rainforesttothecoast.com/#events): live calendar from Grays Harbor and Ocean Shores.
