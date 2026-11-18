@@ -12,8 +12,11 @@
 .rtc-reveal .rv-coast{object-position:60% center}
 .rtc-reveal .rv-rain{object-position:center 40%;clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
 .rtc-reveal .rv-line{position:absolute;top:0;bottom:0;left:var(--pos);width:4px;margin-left:-2px;background:#fff;box-shadow:0 0 12px rgba(0,0,0,.35)}
-.rtc-reveal .rv-handle{position:absolute;top:50%;left:var(--pos);transform:translate(-50%,-50%);width:96px;height:96px;border-radius:50%;background:var(--dark,#15293a);border:4px solid #fff;box-shadow:0 8px 24px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--green);font-family:'Yellowtail',cursive;font-size:30px;line-height:1}
-.rtc-reveal .rv-handle small{font-family:'Open Sans',sans-serif;font-size:13px;color:#fff;letter-spacing:.3em;margin-top:4px}
+.rtc-reveal .rv-handle{position:absolute;top:50%;left:var(--pos);transform:translate(-50%,-50%);height:62px;padding:0 14px;border-radius:999px;background:var(--dark,#15293a);border:4px solid #fff;box-shadow:0 8px 24px rgba(0,0,0,.4);display:flex;align-items:center;gap:10px;color:var(--green);font-family:'Yellowtail',cursive;font-size:30px;line-height:1;white-space:nowrap}
+.rtc-reveal .rv-handle .ar{display:block;width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent}
+.rtc-reveal .rv-handle .ar-l{border-right:11px solid #fff}
+.rtc-reveal .rv-handle .ar-r{border-left:11px solid #fff}
+.rtc-reveal .rv-handle span.t{padding-bottom:4px}
 .rtc-reveal .rv-lbl{position:absolute;bottom:18px;font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,7vw,56px);color:#fff;letter-spacing:.06em;text-shadow:0 2px 14px rgba(0,0,0,.65);transition:opacity .2s}
 .rtc-reveal .rv-l{left:18px}.rtc-reveal .rv-r{right:18px}
 .rtc-reveal::after{content:"";position:absolute;inset:60% 0 0 0;background:linear-gradient(transparent,rgba(13,41,58,.6));pointer-events:none}
@@ -31,7 +34,7 @@
     <img class="rv-rain" alt="Mossy old-growth trail in the Quinault Rain Forest" src="/.netlify/images?url=%2Fassets%2Fimg%2Frainforest-mossy-trail.jpg&amp;w=1200&amp;q=72">
     <div class="rv-line"></div>
     <span class="rv-lbl rv-l">Rainforest</span><span class="rv-lbl rv-r">Coast</span>
-    <div class="rv-handle" aria-hidden="true">to the<small>‹ ›</small></div>
+    <div class="rv-handle" aria-hidden="true"><i class="ar ar-l"></i><span class="t">to the</span><i class="ar ar-r"></i></div>
     <input type="range" min="0" max="100" value="50" aria-label="Slide between the rainforest and the coast">
   </div>
   <p class="rv-cap">Slide <strong><em style="font-family:Yellowtail,cursive;font-style:normal;color:var(--green);font-size:1.3em">to the</em></strong> to go from rainforest to coast. <strong>Less than an hour apart.</strong></p>
