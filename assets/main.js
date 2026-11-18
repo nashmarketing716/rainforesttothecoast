@@ -299,6 +299,7 @@
   posters.forEach(function (b) {
     b.addEventListener('click', function () {
       var f = b.parentNode.querySelector('iframe'); b.classList.add('gone');
+      if (/youtube/.test(f.src)) { f.src += (f.src.indexOf('?') > -1 ? '&' : '?') + 'autoplay=1'; return; }
       withApi(function () { try { new Vimeo.Player(f).play().catch(function () {}); } catch (e) {} });
     });
   });
