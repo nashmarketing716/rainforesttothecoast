@@ -135,6 +135,7 @@
     out.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     var set = function (n, v) { var el = document.querySelector('form.lead input[name=' + n + ']'); if (el) el.value = v; };
+    window.RTC_LAST_PLAN = p;
     set('itinerary', p.summary);
     var dr = document.querySelector('form.lead input[name=trip_days][value="' + Math.max(2, p.nDays) + '"]'); if (dr) dr.checked = true; set('plan_start', p.start); set('plan_days', p.nDays); set('plan_season', p.season); set('plan_likes', p.likes.join(','));
     if (window.dataLayer) window.dataLayer.push({ event: 'trip_planned', days: p.nDays, start: p.start, season: p.season, interests: p.likes.join(',') });
@@ -191,7 +192,7 @@
     try {
       var ints = [].map.call(f.querySelectorAll('input[name="interests"]:checked'), function (i) { return i.value; });
       sessionStorage.setItem('rtc-lead', JSON.stringify({ name: (f.first_name.value || '').trim(), interests: ints,
-        start: f.plan_start.value, days: (f.querySelector('input[name=trip_days]:checked') || {}).value || f.plan_days.value, season: f.plan_season.value, likes: f.plan_likes.value }));
+        start: f.plan_start.value, days: (f.plan_likes.value && f.plan_days.value) || (f.querySelector('input[name=trip_days]:checked') || {}).value, season: f.plan_season.value, likes: f.plan_likes.value }));
     } catch (e) {}
   });
 })();
@@ -303,4 +304,27 @@
       withApi(function () { try { new Vimeo.Player(f).play().catch(function () {}); } catch (e) {} });
     });
   });
+})();
+
+// ---------- "Email me this plan": carry the planner's choices into the form ----------
+(function () {
+  var f = document.querySelector('form.lead'); if (!f) return;
+  var box = document.getElementById('plan-summary'), detail = document.getElementById('ps-detail');
+  var days = f.querySelector('.days-pick'), ints = f.querySelector('input[name=interests]').closest('fieldset');
+  var btn = f.querySelector('button[type=submit]'), btnText = btn.textContent;
+  var LABEL = { rainforest: 'Rainforest & hiking', beaches: 'Beaches', seafood: 'Seafood & fishing', wildlife: 'Wildlife & birding', history: 'History & arts', family: 'Kids & dogs' };
+  var TO_LEAD = { rainforest: ['Rainforest hiking'], beaches: ['Beaches'], seafood: ['Fishing & clamming', 'Food & drink'], history: ['History & arts'] };
+  function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+  function exit() { f.classList.remove('plan-mode'); box.hidden = true; days.hidden = false; ints.hidden = false; btn.textContent = btnText; f.plan_likes.value = ''; }
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest || !e.target.closest('#plan-email')) return;
+    var p = window.RTC_LAST_PLAN; if (!p) return;
+    var r = f.querySelector('input[name=trip_days][value="' + Math.max(2, p.nDays) + '"]'); if (r) r.checked = true;
+    f.querySelectorAll('input[name=interests]').forEach(function (c) { c.checked = false; });
+    p.likes.forEach(function (l) { (TO_LEAD[l] || []).forEach(function (v) { var c = f.querySelector('input[name=interests][value="' + v + '"]'); if (c) c.checked = true; }); });
+    detail.textContent = p.nDays + (p.nDays === 1 ? ' day' : ' days') + ' from ' + p.start + ' · ' + cap(p.season) + ' · ' + p.likes.map(function (l) { return LABEL[l] || l; }).join(', ');
+    f.classList.add('plan-mode'); box.hidden = false; days.hidden = true; ints.hidden = true; btn.textContent = 'Email me my plan';
+    setTimeout(function () { try { f.first_name.focus({ preventScroll: true }); } catch (x) {} }, 600);
+  });
+  document.getElementById('ps-change').addEventListener('click', exit);
 })();
