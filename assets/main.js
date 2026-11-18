@@ -256,3 +256,26 @@
   }, { rootMargin: '200px 0px', threshold: 0.01 });
   vids.forEach(function (v) { io.observe(v); });
 })();
+
+// ---------- Vimeo: skip outdated parts of a segment (data-skip-from / data-skip-to, in seconds) ----------
+(function () {
+  var frames = document.querySelectorAll('iframe[data-skip-from]'); if (!frames.length) return;
+  var loaded = false;
+  function init() {
+    frames.forEach(function (f) {
+      var from = +f.getAttribute('data-skip-from'), to = +f.getAttribute('data-skip-to');
+      var p = new Vimeo.Player(f), busy = false;
+      p.on('timeupdate', function (d) {
+        if (!busy && d.seconds >= from && d.seconds < to - 0.5) { busy = true; p.setCurrentTime(to).then(function () { busy = false; }, function () { busy = false; }); }
+      });
+    });
+  }
+  function load() {
+    if (loaded) return; loaded = true;
+    var s = document.createElement('script'); s.src = 'https://player.vimeo.com/api/player.js'; s.onload = init; document.head.appendChild(s);
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); load(); } }, { rootMargin: '400px 0px' });
+    frames.forEach(function (f) { io.observe(f); });
+  } else load();
+})();
