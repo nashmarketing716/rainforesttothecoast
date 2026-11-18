@@ -12,6 +12,7 @@
               river: ['Fish for salmon and steelhead on the Satsop and Wynoochee rivers', 'Cast from the banks of the Chehalis River at Friends Landing'],
               lakes: ['Paddle and swim at Lake Sylvia State Park near Montesano', 'Launch a boat or kayak on the reservoir at Lake Wynoochee'],
               biking: ['Ride the forest singletrack at Lake Sylvia State Park'],
+              events: ['Plan around the McCleary Bear Festival (July) or the Grays Harbor County Fair in Elma (August)'],
               museums: ['See the historic Grays Harbor County Courthouse in Montesano, the county seat'],
               food: ['Grab lunch in downtown Montesano or Elma'],
               family: ['Picnic and fish at Friends Landing'],
@@ -20,6 +21,7 @@
     port: { name: 'Port Cities', towns: 'Aberdeen · Hoquiam · Cosmopolis', stop: 'Aberdeen, WA',
       img: U + '2024/08/Historic-Homes-5.webp', link: 'https://visitgraysharbor.com/port-cities/',
       acts: { museums: ['Visit the Kurt Cobain Museum and Kurt Cobain Memorial Park in Aberdeen', 'Tour the Polson Museum in Hoquiam', 'Walk past the downtown murals and timber-baron homes in Aberdeen', 'Catch a show in the historic 7th Street Theatre district in Hoquiam'],
+              events: ['Catch Loggers Playday in Hoquiam (September) or a downtown concert or market'],
               wildlife: ['Walk the boardwalk at Grays Harbor National Wildlife Refuge'],
               river: ['Fish for salmon where the Wishkah and Chehalis rivers meet the harbor'],
               food: ['Find a local cafe, brewery or distillery downtown'],
@@ -46,6 +48,7 @@
               lakes: ['Boat or paddle Duck Lake and the canals of Ocean Shores'],
               biking: ['Ride a fat-tire bike on the hard-packed sand'],
               horses: ['Go horseback riding on the beach in Ocean Shores'],
+              events: ['Time your trip for an Ocean Shores festival, like the Razor Clam Festival or Sand & Sawdust'],
               kites: ['Fly kites on the wide, windy beaches of Ocean Shores'],
               museums: ['Visit the Coastal Interpretive Center in Ocean Shores'],
               river: ['Fish the Copalis River near the beach'],
@@ -61,6 +64,7 @@
               beaches: ['Surf, beachcomb and fly kites along the Westport and Grayland beaches'],
               biking: ['Ride the paved Dune Trail to the Westport lighthouse'],
               horses: ['Ride horseback along the Grayland and Westport beaches'],
+              events: ['Visit for the Cranberry Harvest Festival in Grayland (October) or a Westport seafood festival'],
               kites: ['Fly kites on the open beach at Westport Light State Park'],
               river: ['Fish the Johns River near Markham'],
               wildlife: ['Go whale watching out of Westport'],
@@ -84,9 +88,9 @@
   // Interests from the "Get free trip ideas" form, mapped to planner interests
   var LEAD_MAP = { 'Rainforest & hiking': 'rainforest', 'Beaches & surfing': 'beaches', 'Charter & ocean fishing': 'charter',
     'River fishing': 'river', 'Clam digging': 'clams', 'Fresh seafood & local food': 'food', 'Lakes & paddling': 'lakes',
-    'Mountain biking': 'biking', 'Lakes, boating & paddling': 'lakes', 'Horseback riding': 'horses', 'Kite flying': 'kites', 'Museums & history': 'museums', 'Wildlife & birding': 'wildlife', 'Kids & dogs': 'family',
+    'Mountain biking': 'biking', 'Lakes, boating & paddling': 'lakes', 'Horseback riding': 'horses', 'Kite flying': 'kites', 'Events & festivals': 'events', 'Museums & history': 'museums', 'Wildlife & birding': 'wildlife', 'Kids & dogs': 'family',
     // older form labels
-    'Rainforest hiking': 'rainforest', 'Beaches': 'beaches', 'Fishing & clamming': 'charter', 'Food & drink': 'food', 'Events': null, 'History & arts': 'museums' };
+    'Rainforest hiking': 'rainforest', 'Beaches': 'beaches', 'Fishing & clamming': 'charter', 'Food & drink': 'food', 'Events': 'events', 'History & arts': 'museums' };
   var OLD = { seafood: ['charter', 'clams', 'food'], history: ['museums'] };
   function seasonFor(d) { var m = (d || new Date()).getMonth(); return m < 2 || m === 11 ? 'winter' : m < 5 ? 'spring' : m < 8 ? 'summer' : 'fall'; }
 
@@ -114,6 +118,7 @@
         acts = acts.concat(mine.slice(0, quota));
         if (r.season[season] && tips.indexOf(r.season[season]) === -1 && !repeat) tips.push(r.season[season]);
         var CLAM = 'Razor clam digs open only on set dates. Check the WDFW schedule and get a shellfish license before you go.';
+        if (likes.indexOf('events') > -1 && !seen.evTip) { seen.evTip = true; tips.push('Check the live events calendar on rainforesttothecoast.com for what\'s on during your dates.'); }
         if (likes.indexOf('clams') > -1 && (k === 'north' || k === 'south') && !seen.clamTip) { seen.clamTip = true; tips.push(CLAM); }
       });
       acts.forEach(function (a) { used[a] = true; });
