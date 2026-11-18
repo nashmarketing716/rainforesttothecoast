@@ -363,3 +363,6 @@ legend{font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 /* Menu: video link (phone/tablet menu only) */
 .main-nav .nav-video{color:var(--gold)}
 @media (min-width:1181px){.main-nav .nav-video{display:none}}
+/* Play button sits below the end-card title */
+.video-play{inset:auto 0 9% 0}
+@media (max-width:600px){.video-play{bottom:6%}}
