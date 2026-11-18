@@ -218,7 +218,14 @@
   var rng = box.querySelector('input'), l = box.querySelector('.rv-l'), r = box.querySelector('.rv-r'), touched = false, drag = false;
   function set(p) { p = Math.max(4, Math.min(96, p)); box.style.setProperty('--pos', p + '%'); rng.value = p; l.style.opacity = p < 24 ? 0 : 1; r.style.opacity = p > 76 ? 0 : 1; }
   function fromX(x) { var b = box.getBoundingClientRect(); return (x - b.left) / b.width * 100; }
-  box.addEventListener('pointerdown', function (e) { drag = true; touched = true; set(fromX(e.clientX)); });
+  var handle = box.querySelector('.rv-handle');
+  function nearLine(e) {
+    var hb = handle.getBoundingClientRect();
+    if (e.clientX >= hb.left - 6 && e.clientX <= hb.right + 6 && e.clientY >= hb.top - 6 && e.clientY <= hb.bottom + 6) return true;
+    var b = box.getBoundingClientRect(), lineX = b.left + b.width * (+rng.value) / 100;
+    return Math.abs(e.clientX - lineX) <= 28;
+  }
+  box.addEventListener('pointerdown', function (e) { if (!nearLine(e)) return; drag = true; touched = true; e.preventDefault(); });
   window.addEventListener('pointermove', function (e) { if (drag) set(fromX(e.clientX)); });
   window.addEventListener('pointerup', function () { drag = false; });
   window.addEventListener('pointercancel', function () { drag = false; });

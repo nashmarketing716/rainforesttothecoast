@@ -427,3 +427,9 @@ legend{font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 @media (min-width:700px){.tv-stories{grid-template-columns:1fr 1fr}}
 .tv-card figcaption em{font-style:italic}
 .tv-stories.tv-stories-1{grid-template-columns:1fr!important;max-width:320px}
+
+/* Slider: only the handle / line drags; the hidden range stays for keyboard users */
+.rtc-reveal{cursor:default}
+.rtc-reveal input{pointer-events:none}
+.rtc-reveal .rv-handle{cursor:ew-resize}
+.rtc-reveal .rv-line::before{content:"";position:absolute;top:0;bottom:0;left:-24px;right:-24px;cursor:ew-resize}
