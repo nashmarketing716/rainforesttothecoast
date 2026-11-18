@@ -47,7 +47,7 @@
 
 <main id="main" class="page"><div class="wrap narrow">
 <p class="eyebrow">Message received</p>
-<h1>Thank you<span id="ty-name"></span>! We've received your message.</h1>
+<h1 id="ty-h1">Thank you! We've received your message.</h1>
 <p class="lead-ty">We'll email you a <strong>road trip guide</strong> built around the interests you selected<span id="ty-colon">.</span></p>
 <ul class="checks" id="ty-interests" hidden></ul>
 <div class="plan-out" id="ty-plan" hidden></div>
@@ -67,7 +67,7 @@
 </ul>
 <p><a class="btn btn-ghost" href="/">Back to Rainforest to the Coast</a></p>
 <script>if(/[?&]map=1/.test(location.search)){fetch('/assets/rainforest-to-coast-map.pdf',{method:'HEAD'}).then(function(r){if(r.ok)document.getElementById('map-dl').hidden=false;});}</script>
-<script>try{var d=JSON.parse(sessionStorage.getItem('rtc-lead')||'{}');if(d.name){document.getElementById('ty-name').textContent=', '+d.name;}if(d.interests&&d.interests.length){var ul=document.getElementById('ty-interests');d.interests.forEach(function(x){var li=document.createElement('li');li.textContent=x;ul.appendChild(li);});ul.hidden=false;document.getElementById('ty-colon').textContent=':';}}catch(e){}</script>
+<script>try{var d=JSON.parse(sessionStorage.getItem('rtc-lead')||'{}');if(d.name){document.getElementById('ty-h1').textContent='Thank you, '+d.name+'! We\'ve received your message.';}if(d.interests&&d.interests.length){var ul=document.getElementById('ty-interests');d.interests.forEach(function(x){var li=document.createElement('li');li.textContent=x;ul.appendChild(li);});ul.hidden=false;document.getElementById('ty-colon').textContent=':';}}catch(e){}</script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   try {
