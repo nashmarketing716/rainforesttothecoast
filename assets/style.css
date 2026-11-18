@@ -415,3 +415,13 @@ legend{font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 .tv-poster{align-items:flex-end;justify-content:flex-start}
 .tv-poster span{width:54px;height:40px;border-radius:6px;background:rgba(0,0,0,.85);box-shadow:none;margin:0 0 14px 14px}
 .tv-poster span::after{margin-left:4px;border-left-width:15px;border-top-width:9px;border-bottom-width:9px}
+
+/* Featured full-episode card */
+.tv-feature{grid-column:1/-1}
+.tv-feature .tv-frame{max-width:860px;margin:0 auto}
+.tv-feature figcaption{font-size:1.15rem}
+.tv-feature figcaption em{font-style:italic}
+.tv-stories{list-style:none;padding:0;margin:.7rem auto 0;display:grid;grid-template-columns:1fr;gap:.35rem 2rem;max-width:620px;text-align:left;font-weight:600;font-size:1rem;color:var(--ink,#22333b)}
+.tv-stories li{position:relative;padding-left:1.3em}
+.tv-stories li::before{content:"";position:absolute;left:0;top:.5em;width:.55em;height:.55em;border-radius:50%;background:var(--green)}
+@media (min-width:700px){.tv-stories{grid-template-columns:1fr 1fr}}
