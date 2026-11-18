@@ -45,6 +45,7 @@
               charter: ['Try surf fishing from the beach'],
               lakes: ['Boat or paddle Duck Lake and the canals of Ocean Shores'],
               biking: ['Ride a fat-tire bike on the hard-packed sand'],
+              horses: ['Go horseback riding on the beach in Ocean Shores'],
               museums: ['Visit the Coastal Interpretive Center in Ocean Shores'],
               river: ['Fish the Copalis River near the beach'],
               family: ['Bike on the hard-packed sand, fly kites and build sandcastles'],
@@ -58,6 +59,7 @@
               clams: ['Dig razor clams on the Twin Harbors beaches when a dig is open'],
               beaches: ['Surf, beachcomb and fly kites along the Westport and Grayland beaches'],
               biking: ['Ride the paved Dune Trail to the Westport lighthouse'],
+              horses: ['Ride horseback along the Grayland and Westport beaches'],
               river: ['Fish the Johns River near Markham'],
               wildlife: ['Go whale watching out of Westport'],
               museums: ['Visit the Westport Maritime Museum'],
@@ -80,7 +82,7 @@
   // Interests from the "Get free trip ideas" form, mapped to planner interests
   var LEAD_MAP = { 'Rainforest & hiking': 'rainforest', 'Beaches & surfing': 'beaches', 'Charter & ocean fishing': 'charter',
     'River fishing': 'river', 'Clam digging': 'clams', 'Fresh seafood & local food': 'food', 'Lakes & paddling': 'lakes',
-    'Mountain biking': 'biking', 'Lakes, boating & paddling': 'lakes', 'Museums & history': 'museums', 'Wildlife & birding': 'wildlife', 'Kids & dogs': 'family',
+    'Mountain biking': 'biking', 'Lakes, boating & paddling': 'lakes', 'Horseback riding': 'horses', 'Museums & history': 'museums', 'Wildlife & birding': 'wildlife', 'Kids & dogs': 'family',
     // older form labels
     'Rainforest hiking': 'rainforest', 'Beaches': 'beaches', 'Fishing & clamming': 'charter', 'Food & drink': 'food', 'Events': null, 'History & arts': 'museums' };
   var OLD = { seafood: ['charter', 'clams', 'food'], history: ['museums'] };
