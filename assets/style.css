@@ -433,3 +433,7 @@ legend{font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 .rtc-reveal input{pointer-events:none}
 .rtc-reveal .rv-handle{cursor:ew-resize}
 .rtc-reveal .rv-line::before{content:"";position:absolute;top:0;bottom:0;left:-24px;right:-24px;cursor:ew-resize}
+
+/* All TV caption titles match the featured one */
+.tv-card figcaption{font-size:1.15rem}
+.tv-stories{font-size:1rem}
