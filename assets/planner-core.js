@@ -7,7 +7,7 @@
   var U = 'https://visitgraysharbor.com/wp-content/uploads/';
   var R = {
     east: { name: 'East County', towns: 'Elma · McCleary · Montesano', stop: 'Montesano, WA',
-      img: U + '2025/03/VGH-CSR-2024-WYNOOCHEE-9.webp', link: 'https://visitgraysharbor.com/eastern-county/',
+      img: U + '2025/03/VGH-CSR-2024-WYNOOCHEE-9.webp', imgs: [U + '2025/03/VGH-CSR-2024-WYNOOCHEE-9.webp', U + '2025/03/LakeWynoocheeFallsNorthofMontesanoWashington5.webp'], link: 'https://visitgraysharbor.com/eastern-county/',
       acts: { rainforest: ['Hike the riverside trails at Friends Landing near Montesano', 'Detour north of Montesano to the falls at Lake Wynoochee'],
               river: ['Fish for salmon and steelhead on the Satsop and Wynoochee rivers', 'Cast from the banks of the Chehalis River at Friends Landing'],
               lakes: ['Paddle and swim at Lake Sylvia State Park near Montesano', 'Launch a boat or kayak on the reservoir at Lake Wynoochee'],
@@ -19,7 +19,7 @@
               any: ['Stretch your legs in Montesano, the gateway from I-5'] },
       season: { summer: 'Summer events: the McCleary Bear Festival (July) and the Grays Harbor County Fair in Elma (August).' } },
     port: { name: 'Port Cities', towns: 'Aberdeen · Hoquiam · Cosmopolis', stop: 'Aberdeen, WA',
-      img: U + '2024/08/Historic-Homes-5.webp', link: 'https://visitgraysharbor.com/port-cities/',
+      img: U + '2024/08/Historic-Homes-5.webp', imgs: [U + '2024/08/Historic-Homes-5.webp', U + '2021/04/Aberdeen-Murual-1.webp', U + '2021/04/7thStreetTheater-Hoquiam.webp'], link: 'https://visitgraysharbor.com/port-cities/',
       acts: { museums: ['Visit the Kurt Cobain Museum and Kurt Cobain Memorial Park in Aberdeen', 'Tour the Polson Museum in Hoquiam', 'Walk past the downtown murals and timber-baron homes in Aberdeen', 'Catch a show in the historic 7th Street Theatre district in Hoquiam'],
               events: ['Catch Loggers Playday in Hoquiam (September) or a downtown concert or market'],
               wildlife: ['Walk the boardwalk at Grays Harbor National Wildlife Refuge'],
@@ -29,7 +29,7 @@
               any: ['Grab coffee in Aberdeen before heading north on US-101'] },
       season: { spring: 'Spring: hundreds of thousands of shorebirds stop at the refuge during migration.', fall: 'Fall: shorebirds pass through the refuge again on their southbound migration.' } },
     quin: { name: 'Quinault Rain Forest', towns: 'Lake Quinault', stop: 'Lake Quinault, WA',
-      img: U + '2024/08/Drone_Lake-Quinault_Family-Canoe.webp', link: 'https://visitgraysharbor.com/quinault/',
+      img: U + '2024/08/Drone_Lake-Quinault_Family-Canoe.webp', imgs: [U + '2024/08/Drone_Lake-Quinault_Family-Canoe.webp', U + '2024/09/Lake-Quinault-Lodge-Relaxing-Looking-at-lake.webp', U + '2024/08/Drone_Lake-Quinault-Lodge.webp'], link: 'https://visitgraysharbor.com/quinault/',
       acts: { rainforest: ['Hike the mossy rainforest trails around Lake Quinault', 'Drive the 30-mile loop around the lake'],
               lakes: ['Paddle, canoe or take a boat out on Lake Quinault', 'Swim off the lakeshore on a summer afternoon'],
               river: ['Fish the Humptulips River on the drive north'],
@@ -40,7 +40,7 @@
               any: ['Take in the "Valley of the Giants," home to the world\'s largest Sitka spruce'] },
       season: { winter: 'Winter: the rainforest lives up to its name. Pack rain gear and enjoy the empty trails.', summer: 'Summer: paddle and swim in the lake.' } },
     north: { name: 'Northern Beaches', towns: 'Seabrook · Pacific Beach · Ocean Shores', stop: 'Ocean Shores, WA', via: 'Seabrook, WA',
-      img: U + '2024/09/Washington-Coast-Tide-Pooling-Sea-Stars-Damon-Point-Ocean-Shores.webp', link: 'https://visitgraysharbor.com/northern-beaches/',
+      img: U + '2024/09/Washington-Coast-Tide-Pooling-Sea-Stars-Damon-Point-Ocean-Shores.webp', imgs: [U + '2024/09/Washington-Coast-Tide-Pooling-Sea-Stars-Damon-Point-Ocean-Shores.webp', U + '2021/05/Couple-on-Path-Seabrook.webp', U + '2021/05/Couple-riding-bikes-on-beach-copy-2.webp', U + '2021/05/Damon-Point.webp'], link: 'https://visitgraysharbor.com/northern-beaches/',
       acts: { beaches: ['Explore the tide pools at Damon Point in Ocean Shores', 'Watch the sunset over the Pacific with a beach campfire'],
               clams: ['Dig razor clams if a WDFW dig is open (license required)'],
               food: ['Eat fresh-caught seafood in Ocean Shores'],
@@ -58,7 +58,7 @@
               any: ['Stroll Seabrook\'s town center and the beach trails'] },
       season: { winter: 'Winter: storm-watching season. Book a cozy cottage with an ocean view.', spring: 'Spring: razor clam digs are often open. Check the WDFW schedule.' } },
     south: { name: 'Southern Beaches', towns: 'Westport · Grayland', stop: 'Westport, WA', via: 'Grayland, WA',
-      img: U + '2024/09/DJI_0012.webp', link: 'https://visitgraysharbor.com/southern-beaches/',
+      img: U + '2024/09/DJI_0012.webp', imgs: [U + '2024/09/DJI_0012.webp', U + '2024/09/Westport-Marina2.webp', U + '2021/04/Surfers.webp', U + '2021/09/cranberry-bog.webp'], link: 'https://visitgraysharbor.com/southern-beaches/',
       acts: { charter: ['Book a charter fishing trip out of Westport', 'Watch the charter boats come in at the Westport marina'],
               food: ['Order fresh crab and fish at the Westport docks'],
               clams: ['Dig razor clams on the Twin Harbors beaches when a dig is open'],
@@ -105,7 +105,7 @@
     if ((likes.indexOf('charter') > -1 || likes.indexOf('food') > -1 || likes.indexOf('crabbing') > -1) && likes.indexOf('beaches') === -1 && days >= 2 && days <= 3) {
       plan = plan.map(function (d) { return d.map(function (r) { return r === 'north' ? 'south' : r; }); });
     }
-    var seen = {}, used = {}, out = [], text = [];
+    var seen = {}, used = {}, usedImg = {}, out = [], text = [];
     plan.forEach(function (regions, i) {
       var acts = [], tips = [];
       var quota = regions.length > 1 ? 2 : 3;
@@ -126,10 +126,12 @@
       });
       acts.forEach(function (a) { used[a] = true; });
       var main = R[regions[regions.length - 1]];
+      // a different photo each day, even when a region repeats
+      var pic = (main.imgs || [main.img]).filter(function (u) { return !usedImg[u]; })[0] || main.img; usedImg[pic] = true;
       var uniq = function (v, j, a) { return a.indexOf(v) === j; };
       var title = 'Day ' + (i + 1) + ' · ' + regions.map(function (k) { return R[k].name; }).filter(uniq).join(' → ');
       out.push({ title: title, towns: regions.map(function (k) { return R[k].towns; }).filter(uniq).join(' · '),
-        acts: acts, tips: tips, img: main.img, link: main.link, name: main.name });
+        acts: acts, tips: tips, img: pic, link: main.link, name: main.name });
       text.push(title + ': ' + acts.join('; '));
     });
     var order = ['east', 'port', 'quin', 'north', 'south'], wps = [];
