@@ -211,3 +211,33 @@
   if (!link || !v) return;
   link.addEventListener('click', function () { v.controls = true; var p = v.play(); if (p && p.catch) p.catch(function () {}); });
 })();
+
+// ---------- Hero: Rainforest "to the" Coast reveal slider ----------
+(function () {
+  var box = document.getElementById('rtc-reveal'); if (!box) return;
+  var rng = box.querySelector('input'), l = box.querySelector('.rv-l'), r = box.querySelector('.rv-r'), touched = false, drag = false;
+  function set(p) { p = Math.max(4, Math.min(96, p)); box.style.setProperty('--pos', p + '%'); rng.value = p; l.style.opacity = p < 24 ? 0 : 1; r.style.opacity = p > 76 ? 0 : 1; }
+  function fromX(x) { var b = box.getBoundingClientRect(); return (x - b.left) / b.width * 100; }
+  box.addEventListener('pointerdown', function (e) { drag = true; touched = true; set(fromX(e.clientX)); });
+  window.addEventListener('pointermove', function (e) { if (drag) set(fromX(e.clientX)); });
+  window.addEventListener('pointerup', function () { drag = false; });
+  window.addEventListener('pointercancel', function () { drag = false; });
+  box.addEventListener('touchmove', function (e) { if (drag && e.touches[0]) set(fromX(e.touches[0].clientX)); }, { passive: true });
+  rng.addEventListener('input', function () { touched = true; set(+rng.value); });
+  set(50);
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
+  var seq = [[50, 0], [36, 700], [64, 1500], [50, 2200]];
+  var io = new IntersectionObserver(function (es) {
+    if (!es[0].isIntersecting) return; io.disconnect();
+    var s = performance.now();
+    (function step(n) {
+      if (touched) return;
+      var t = n - s, i = 1; while (i < seq.length && seq[i][1] < t) i++;
+      if (i >= seq.length) { set(50); return; }
+      var a = seq[i - 1], b = seq[i], k = (t - a[1]) / (b[1] - a[1]); k = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+      set(a[0] + (b[0] - a[0]) * k); requestAnimationFrame(step);
+    })(s);
+  }, { threshold: .6 });
+  setTimeout(function () { io.observe(box); }, 500);
+})();

@@ -374,3 +374,21 @@ legend{font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 .video-card figcaption{padding:0 5vw}
 @media (max-width:600px){.video-frame{border-radius:0}}
 .video-band .wrap{width:100%}
+
+/* Hero: Rainforest "to the" Coast reveal slider */
+.hero-media{display:block;height:auto}
+.rtc-reveal{position:relative;width:100%;aspect-ratio:4/5;max-height:78vh;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:ew-resize;background:#15293a;--pos:50%}
+.rtc-reveal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
+.rtc-reveal .rv-coast{object-position:60% center}
+.rtc-reveal .rv-rain{object-position:center 40%;clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.rtc-reveal .rv-line{position:absolute;top:0;bottom:0;left:var(--pos);width:4px;margin-left:-2px;background:#fff;box-shadow:0 0 12px rgba(0,0,0,.35)}
+.rtc-reveal::after{content:"";position:absolute;inset:60% 0 0 0;background:linear-gradient(transparent,rgba(13,41,58,.6));pointer-events:none}
+.rtc-reveal .rv-lbl{position:absolute;bottom:18px;z-index:2;font-family:var(--head);font-size:clamp(30px,6vw,52px);color:#fff;letter-spacing:.06em;text-shadow:0 2px 14px rgba(0,0,0,.65);transition:opacity .2s}
+.rtc-reveal .rv-l{left:18px}.rtc-reveal .rv-r{right:18px}
+.rtc-reveal .rv-handle{position:absolute;z-index:3;top:50%;left:var(--pos);transform:translate(-50%,-50%);height:62px;padding:0 14px;border-radius:12px;background:#15293a;border:4px solid #fff;box-shadow:0 8px 24px rgba(0,0,0,.4);display:flex;align-items:center;gap:10px;color:var(--green);font-family:'Yellowtail','Brush Script MT',cursive;font-size:30px;line-height:1;white-space:nowrap}
+.rtc-reveal .rv-handle .t{display:block;transform:translateY(-3px)}
+.rtc-reveal .ar{display:block;width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent}
+.rtc-reveal .ar-l{border-right:11px solid #fff}.rtc-reveal .ar-r{border-left:11px solid #fff}
+.rtc-reveal input{position:absolute;inset:0;z-index:4;width:100%;height:100%;opacity:0;margin:0;cursor:ew-resize}
+.rtc-reveal input:focus-visible+*{outline:none}
+.rtc-reveal:has(input:focus-visible) .rv-handle{outline:3px solid var(--gold);outline-offset:3px}
