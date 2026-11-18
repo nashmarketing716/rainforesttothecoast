@@ -241,3 +241,18 @@
   }, { threshold: .6 });
   setTimeout(function () { io.observe(box); }, 500);
 })();
+
+// ---------- Looping video strip: play only while on screen ----------
+(function () {
+  var vids = document.querySelectorAll('.loop-video'); if (!vids.length) return;
+  var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (still || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      var v = e.target;
+      if (e.isIntersecting) { if (v.preload === 'none') { v.preload = 'auto'; v.load(); } var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      else v.pause();
+    });
+  }, { rootMargin: '200px 0px', threshold: 0.01 });
+  vids.forEach(function (v) { io.observe(v); });
+})();
