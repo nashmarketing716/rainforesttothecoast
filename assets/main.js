@@ -135,7 +135,8 @@
     out.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     var set = function (n, v) { var el = document.querySelector('form.lead input[name=' + n + ']'); if (el) el.value = v; };
-    set('itinerary', p.summary); set('plan_start', p.start); set('plan_days', p.nDays); set('plan_season', p.season); set('plan_likes', p.likes.join(','));
+    set('itinerary', p.summary);
+    var dr = document.querySelector('form.lead input[name=trip_days][value="' + Math.max(2, p.nDays) + '"]'); if (dr) dr.checked = true; set('plan_start', p.start); set('plan_days', p.nDays); set('plan_season', p.season); set('plan_likes', p.likes.join(','));
     if (window.dataLayer) window.dataLayer.push({ event: 'trip_planned', days: p.nDays, start: p.start, season: p.season, interests: p.likes.join(',') });
   });
 })();
@@ -190,7 +191,7 @@
     try {
       var ints = [].map.call(f.querySelectorAll('input[name="interests"]:checked'), function (i) { return i.value; });
       sessionStorage.setItem('rtc-lead', JSON.stringify({ name: (f.first_name.value || '').trim(), interests: ints,
-        start: f.plan_start.value, days: f.plan_days.value, season: f.plan_season.value, likes: f.plan_likes.value }));
+        start: f.plan_start.value, days: (f.querySelector('input[name=trip_days]:checked') || {}).value || f.plan_days.value, season: f.plan_season.value, likes: f.plan_likes.value }));
     } catch (e) {}
   });
 })();

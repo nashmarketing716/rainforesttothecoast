@@ -16,7 +16,7 @@ exports.handler = async (event) => {
 
     const toArr = (v) => (Array.isArray(v) ? v : v ? String(v).split(/,\s*/) : []);
     const likes = d.plan_likes ? toArr(d.plan_likes) : toArr(d.interests).map((x) => RTCPlan.LEAD_MAP[x]);
-    const p = RTCPlan.build({ start: d.plan_start, days: d.plan_days || 3, season: d.plan_season, likes });
+    const p = RTCPlan.build({ start: d.plan_start, days: d.trip_days || d.plan_days || 3, season: d.plan_season, likes });
     const name = (d.first_name || '').trim();
 
     const res = await fetch('https://api.resend.com/emails', {
