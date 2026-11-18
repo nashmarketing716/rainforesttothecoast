@@ -279,3 +279,20 @@
     frames.forEach(function (f) { io.observe(f); });
   } else load();
 })();
+
+// ---------- TV videos with a custom thumbnail: tap to hide it and play ----------
+(function () {
+  var posters = document.querySelectorAll('.tv-poster'); if (!posters.length) return;
+  function withApi(cb) {
+    if (window.Vimeo && Vimeo.Player) return cb();
+    var s = document.querySelector('script[src*="player.vimeo.com/api/player.js"]');
+    if (!s) { s = document.createElement('script'); s.src = 'https://player.vimeo.com/api/player.js'; document.head.appendChild(s); }
+    s.addEventListener('load', cb);
+  }
+  posters.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.parentNode.querySelector('iframe'); b.classList.add('gone');
+      withApi(function () { try { new Vimeo.Player(f).play().catch(function () {}); } catch (e) {} });
+    });
+  });
+})();
