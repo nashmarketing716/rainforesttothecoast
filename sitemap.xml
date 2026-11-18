@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.rainforesttothecoast.com/</loc><lastmod>2026-11-16</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://www.rainforesttothecoast.com/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://www.rainforesttothecoast.com/assets/img/gh-30-poster.jpg</video:thumbnail_loc>
+      <video:title>Grays Harbor, Washington: Westport, Ocean Shores and the Rainforest in 30 seconds</video:title>
+      <video:description>Kites in Ocean Shores, surf at Seabrook, sunset off Westport and the lodge at Lake Quinault. Just a short drive from Seattle and Portland.</video:description>
+      <video:content_loc>https://www.rainforesttothecoast.com/assets/video/gh-30-1080.mp4</video:content_loc>
+      <video:duration>30</video:duration>
+    </video:video>
+  </url>
   <url><loc>https://www.rainforesttothecoast.com/privacy.html</loc><lastmod>2026-11-16</lastmod></url>
 </urlset>

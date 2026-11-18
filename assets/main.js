@@ -194,3 +194,12 @@
     } catch (e) {}
   });
 })();
+
+// ---------- Video: big play button ----------
+(function () {
+  var v = document.getElementById('gh-video'); if (!v) return;
+  var frame = v.parentNode, btn = frame.querySelector('.video-play');
+  btn.addEventListener('click', function () { v.controls = true; v.play(); });
+  v.addEventListener('play', function () { frame.classList.add('playing'); if (window.dataLayer) window.dataLayer.push({ event: 'video_play', video: 'gh-30' }); });
+  v.addEventListener('ended', function () { frame.classList.remove('playing'); });
+})();

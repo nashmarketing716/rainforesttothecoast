@@ -331,3 +331,16 @@ legend{font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 .sticky-cta em{font-family:'Yellowtail','Brush Script MT',cursive;font-style:normal;font-weight:400;font-size:1.5em;color:var(--gold);display:inline-block;transform:rotate(-3deg);margin-left:.18em;line-height:.8;vertical-align:-.04em}
 
 @media (max-width:600px){.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem}.tabs button{padding:.65em .2em;font-size:.98rem;white-space:nowrap}}
+
+/* Video band */
+.video-band{padding-top:1rem}
+.video-card{margin:0 auto;max-width:1100px}
+.video-frame{position:relative;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);background:#0b2233;aspect-ratio:16/9}
+.video-frame video{display:block;width:100%;height:100%;object-fit:cover}
+.video-play{position:absolute;inset:0;margin:auto;width:92px;height:92px;border-radius:50%;border:0;background:var(--gold);cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,.35);transition:transform .2s}
+.video-play:hover{transform:scale(1.07)}
+.video-play span{display:block;width:0;height:0;margin-left:36px;border-left:28px solid #fff;border-top:17px solid transparent;border-bottom:17px solid transparent}
+.video-frame.playing .video-play{display:none}
+.video-card figcaption{text-align:center;color:var(--muted);margin-top:.9rem;font-size:1rem}
+.video-card figcaption strong{color:var(--blue)}
+@media (max-width:600px){.video-frame{border-radius:16px}.video-play{width:70px;height:70px}.video-play span{margin-left:27px;border-left-width:22px;border-top-width:13px;border-bottom-width:13px}}
