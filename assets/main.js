@@ -312,8 +312,8 @@
   var box = document.getElementById('plan-summary'), detail = document.getElementById('ps-detail');
   var days = f.querySelector('.days-pick'), ints = f.querySelector('input[name=interests]').closest('fieldset');
   var btn = f.querySelector('button[type=submit]'), btnText = btn.textContent;
-  var LABEL = { rainforest: 'Rainforest & hiking', beaches: 'Beaches', seafood: 'Seafood & fishing', wildlife: 'Wildlife & birding', history: 'History & arts', family: 'Kids & dogs' };
-  var TO_LEAD = { rainforest: ['Rainforest hiking'], beaches: ['Beaches'], seafood: ['Fishing & clamming', 'Food & drink'], history: ['History & arts'] };
+  var LABEL = {}; [].forEach.call(document.querySelectorAll('#planner-form input[name=i]'), function (c) { LABEL[c.value] = c.nextElementSibling.textContent; });
+  var TO_LEAD = {}; Object.keys(LABEL).forEach(function (k) { TO_LEAD[k] = [LABEL[k]]; });
   function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
   function exit() { f.classList.remove('plan-mode'); box.hidden = true; days.hidden = false; ints.hidden = false; btn.textContent = btnText; f.plan_likes.value = ''; }
   document.addEventListener('click', function (e) {

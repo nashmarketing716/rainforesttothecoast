@@ -9,38 +9,60 @@
     east: { name: 'East County', towns: 'Elma · McCleary · Montesano', stop: 'Montesano, WA',
       img: U + '2025/03/VGH-CSR-2024-WYNOOCHEE-9.webp', link: 'https://visitgraysharbor.com/eastern-county/',
       acts: { rainforest: ['Hike the riverside trails at Friends Landing near Montesano', 'Detour north of Montesano to the falls at Lake Wynoochee'],
-              family: ['Picnic and fish at Friends Landing'], history: ['See the historic Grays Harbor County Courthouse in Montesano, the county seat'],
+              river: ['Fish for salmon and steelhead on the Satsop and Wynoochee rivers', 'Cast from the banks of the Chehalis River at Friends Landing'],
+              lakes: ['Paddle and swim at Lake Sylvia State Park near Montesano', 'Launch a boat or kayak on the reservoir at Lake Wynoochee'],
+              biking: ['Ride the forest singletrack at Lake Sylvia State Park'],
+              museums: ['See the historic Grays Harbor County Courthouse in Montesano, the county seat'],
+              food: ['Grab lunch in downtown Montesano or Elma'],
+              family: ['Picnic and fish at Friends Landing'],
               any: ['Stretch your legs in Montesano, the gateway from I-5'] },
       season: { summer: 'Summer events: the McCleary Bear Festival (July) and the Grays Harbor County Fair in Elma (August).' } },
     port: { name: 'Port Cities', towns: 'Aberdeen · Hoquiam · Cosmopolis', stop: 'Aberdeen, WA',
       img: U + '2024/08/Historic-Homes-5.webp', link: 'https://visitgraysharbor.com/port-cities/',
-      acts: { history: ['Visit the Kurt Cobain Museum and Kurt Cobain Memorial Park in Aberdeen', 'Walk past the downtown murals and timber-baron homes in Aberdeen', 'Catch a show in the historic 7th Street Theatre district in Hoquiam'],
+      acts: { museums: ['Visit the Kurt Cobain Museum and Kurt Cobain Memorial Park in Aberdeen', 'Tour the Polson Museum in Hoquiam', 'Walk past the downtown murals and timber-baron homes in Aberdeen', 'Catch a show in the historic 7th Street Theatre district in Hoquiam'],
               wildlife: ['Walk the boardwalk at Grays Harbor National Wildlife Refuge'],
-              seafood: ['Find a local cafe, brewery or distillery downtown'],
+              river: ['Fish for salmon where the Wishkah and Chehalis rivers meet the harbor'],
+              food: ['Find a local cafe, brewery or distillery downtown'],
+              family: ['Picnic at Kurt Cobain Memorial Park on the Wishkah River'],
               any: ['Grab coffee in Aberdeen before heading north on US-101'] },
       season: { spring: 'Spring: hundreds of thousands of shorebirds stop at the refuge during migration.', fall: 'Fall: shorebirds pass through the refuge again on their southbound migration.' } },
     quin: { name: 'Quinault Rain Forest', towns: 'Lake Quinault', stop: 'Lake Quinault, WA',
       img: U + '2024/08/Drone_Lake-Quinault_Family-Canoe.webp', link: 'https://visitgraysharbor.com/quinault/',
       acts: { rainforest: ['Hike the mossy rainforest trails around Lake Quinault', 'Drive the 30-mile loop around the lake'],
+              lakes: ['Paddle, canoe or take a boat out on Lake Quinault', 'Swim off the lakeshore on a summer afternoon'],
+              river: ['Fish the Humptulips River on the drive north'],
+              biking: ['Mountain bike the forest roads of Olympic National Forest'],
               wildlife: ['Watch for Roosevelt elk and bald eagles along the loop drive'],
+              museums: ['Visit the Lake Quinault Museum'],
               family: ['Picnic, swim or paddle at the lake'],
-              history: ['Visit the Lake Quinault Museum'],
               any: ['Take in the "Valley of the Giants," home to the world\'s largest Sitka spruce'] },
       season: { winter: 'Winter: the rainforest lives up to its name. Pack rain gear and enjoy the empty trails.', summer: 'Summer: paddle and swim in the lake.' } },
     north: { name: 'Northern Beaches', towns: 'Seabrook · Pacific Beach · Ocean Shores', stop: 'Ocean Shores, WA', via: 'Seabrook, WA',
       img: U + '2024/09/Washington-Coast-Tide-Pooling-Sea-Stars-Damon-Point-Ocean-Shores.webp', link: 'https://visitgraysharbor.com/northern-beaches/',
       acts: { beaches: ['Explore the tide pools at Damon Point in Ocean Shores', 'Watch the sunset over the Pacific with a beach campfire'],
-              seafood: ['Dig razor clams if a WDFW dig is open (license required)', 'Try surf fishing from the beach'],
+              clams: ['Dig razor clams if a WDFW dig is open (license required)'],
+              food: ['Eat fresh-caught seafood in Ocean Shores'],
+              charter: ['Try surf fishing from the beach'],
+              lakes: ['Boat or paddle Duck Lake and the canals of Ocean Shores'],
+              biking: ['Ride a fat-tire bike on the hard-packed sand'],
+              museums: ['Visit the Coastal Interpretive Center in Ocean Shores'],
+              river: ['Fish the Copalis River near the beach'],
               family: ['Bike on the hard-packed sand, fly kites and build sandcastles'],
               wildlife: ['Watch shorebirds at Damon Point'],
               any: ['Stroll Seabrook\'s town center and the beach trails'] },
       season: { winter: 'Winter: storm-watching season. Book a cozy cottage with an ocean view.', spring: 'Spring: razor clam digs are often open. Check the WDFW schedule.' } },
     south: { name: 'Southern Beaches', towns: 'Westport · Grayland', stop: 'Westport, WA', via: 'Grayland, WA',
       img: U + '2024/09/DJI_0012.webp', link: 'https://visitgraysharbor.com/southern-beaches/',
-      acts: { seafood: ['Watch the charter boats come in at the Westport marina', 'Book a charter fishing trip out of Westport'],
+      acts: { charter: ['Book a charter fishing trip out of Westport', 'Watch the charter boats come in at the Westport marina'],
+              food: ['Order fresh crab and fish at the Westport docks'],
+              clams: ['Dig razor clams on the Twin Harbors beaches when a dig is open'],
               beaches: ['Surf, beachcomb and fly kites along the Westport and Grayland beaches'],
+              biking: ['Ride the paved Dune Trail to the Westport lighthouse'],
+              river: ['Fish the Johns River near Markham'],
               wildlife: ['Go whale watching out of Westport'],
-              history: ['Visit the Westport Maritime Museum'],
+              museums: ['Visit the Westport Maritime Museum'],
+              lakes: ['Launch a boat from the Westport marina into Grays Harbor'],
+              family: ['Climb the dunes and watch the waves from the Westport observation tower'],
               any: ['Drive the Cranberry Coast through Grayland'] },
       season: { summer: 'Late June: the cranberry bogs blossom along the Cranberry Coast.', fall: 'Fall: watch the cranberry harvest on the Cranberry Coast.', winter: 'Winter: king tides and big surf in Westport.' } }
   };
@@ -56,16 +78,21 @@
   var DAYTITLE = { 1: 'Rainforest to the Coast in a day' };
 
   // Interests from the "Get free trip ideas" form, mapped to planner interests
-  var LEAD_MAP = { 'Rainforest hiking': 'rainforest', 'Beaches': 'beaches', 'Fishing & clamming': 'seafood',
-    'Food & drink': 'seafood', 'Events': null, 'History & arts': 'history' };
+  var LEAD_MAP = { 'Rainforest & hiking': 'rainforest', 'Beaches & surfing': 'beaches', 'Charter & ocean fishing': 'charter',
+    'River fishing': 'river', 'Clam digging': 'clams', 'Fresh seafood & local food': 'food', 'Lakes & paddling': 'lakes',
+    'Mountain biking': 'biking', 'Lakes, boating & paddling': 'lakes', 'Museums & history': 'museums', 'Wildlife & birding': 'wildlife', 'Kids & dogs': 'family',
+    // older form labels
+    'Rainforest hiking': 'rainforest', 'Beaches': 'beaches', 'Fishing & clamming': 'charter', 'Food & drink': 'food', 'Events': null, 'History & arts': 'museums' };
+  var OLD = { seafood: ['charter', 'clams', 'food'], history: ['museums'] };
   function seasonFor(d) { var m = (d || new Date()).getMonth(); return m < 2 || m === 11 ? 'winter' : m < 5 ? 'spring' : m < 8 ? 'summer' : 'fall'; }
 
   function build(o) {
     var start = o.start || 'Seattle, WA', days = Math.min(5, Math.max(1, +o.days || 3)), season = o.season || seasonFor();
-    var likes = (o.likes || []).filter(function (l) { return l; });
+    var likes = [];
+    (o.likes || []).forEach(function (l) { (OLD[l] || [l]).forEach(function (x) { if (x && likes.indexOf(x) === -1) likes.push(x); }); });
     if (!likes.length) likes = ['rainforest', 'beaches'];
     var plan = PLANS[days];
-    if (likes.indexOf('seafood') > -1 && likes.indexOf('beaches') === -1 && days >= 2 && days <= 3) {
+    if ((likes.indexOf('charter') > -1 || likes.indexOf('food') > -1) && likes.indexOf('beaches') === -1 && days >= 2 && days <= 3) {
       plan = plan.map(function (d) { return d.map(function (r) { return r === 'north' ? 'south' : r; }); });
     }
     var seen = {}, used = {}, out = [], text = [];
@@ -74,13 +101,16 @@
       var quota = regions.length > 1 ? 2 : 3;
       regions.forEach(function (k) {
         var r = R[k], repeat = seen[k]; seen[k] = true;
-        var cats = likes.concat(['any']).concat(Object.keys(r.acts).filter(function (c) { return likes.indexOf(c) === -1 && c !== 'any'; }));
-        var mine = [];
-        cats.forEach(function (l) {
-          (r.acts[l] || []).forEach(function (x) { if (mine.indexOf(x) === -1 && acts.indexOf(x) === -1 && !used[x]) mine.push(x); });
-        });
+        var mine = [], ok = function (x) { return mine.indexOf(x) === -1 && acts.indexOf(x) === -1 && !used[x]; };
+        // take the liked activities in turn, one from each interest, so every pick shows up
+        var pools = likes.map(function (l) { return (r.acts[l] || []).filter(ok); });
+        for (var n = 0; pools.some(function (q) { return q.length > n; }); n++) pools.forEach(function (q) { if (q[n] && ok(q[n])) mine.push(q[n]); });
+        ['any'].concat(Object.keys(r.acts).filter(function (c) { return likes.indexOf(c) === -1 && c !== 'any'; }))
+          .forEach(function (l) { (r.acts[l] || []).forEach(function (x) { if (ok(x)) mine.push(x); }); });
         acts = acts.concat(mine.slice(0, quota));
         if (r.season[season] && tips.indexOf(r.season[season]) === -1 && !repeat) tips.push(r.season[season]);
+        var CLAM = 'Razor clam digs open only on set dates. Check the WDFW schedule and get a shellfish license before you go.';
+        if (likes.indexOf('clams') > -1 && (k === 'north' || k === 'south') && !seen.clamTip) { seen.clamTip = true; tips.push(CLAM); }
       });
       acts.forEach(function (a) { used[a] = true; });
       var main = R[regions[regions.length - 1]];
