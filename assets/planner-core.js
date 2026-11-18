@@ -102,7 +102,7 @@
     (o.likes || []).forEach(function (l) { (OLD[l] || [l]).forEach(function (x) { if (x && likes.indexOf(x) === -1) likes.push(x); }); });
     if (!likes.length) likes = ['rainforest', 'beaches'];
     var plan = PLANS[days];
-    if ((likes.indexOf('charter') > -1 || likes.indexOf('food') > -1) && likes.indexOf('beaches') === -1 && days >= 2 && days <= 3) {
+    if ((likes.indexOf('charter') > -1 || likes.indexOf('food') > -1 || likes.indexOf('crabbing') > -1) && likes.indexOf('beaches') === -1 && days >= 2 && days <= 3) {
       plan = plan.map(function (d) { return d.map(function (r) { return r === 'north' ? 'south' : r; }); });
     }
     var seen = {}, used = {}, out = [], text = [];
