@@ -340,3 +340,13 @@
   document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('#plan-email, #ps-change')) setTimeout(sync, 0); });
   sync();
 })();
+
+// ---------- Trip planner: "All of it!" chip selects or clears every interest ----------
+(function () {
+  var all = document.getElementById('planner-all'); if (!all) return;
+  var boxes = document.querySelectorAll('#planner-form input[name=i]');
+  function sync() { all.checked = [].every.call(boxes, function (c) { return c.checked; }); }
+  all.addEventListener('change', function () { [].forEach.call(boxes, function (c) { c.checked = all.checked; }); });
+  [].forEach.call(boxes, function (c) { c.addEventListener('change', sync); });
+  sync();
+})();
