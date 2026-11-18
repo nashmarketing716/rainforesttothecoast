@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Preview: Rainforest to the Coast slider</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;700&family=Yellowtail&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=20261117s">
+<style>
+.rtc-reveal{position:relative;width:100%;aspect-ratio:4/5;max-height:78vh;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:ew-resize;background:#15293a;--pos:50%}
+@media (min-width:900px){.rtc-reveal{aspect-ratio:16/9}}
+.rtc-reveal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
+.rtc-reveal .rv-coast{object-position:60% center}
+.rtc-reveal .rv-rain{object-position:center 40%;clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.rtc-reveal .rv-line{position:absolute;top:0;bottom:0;left:var(--pos);width:4px;margin-left:-2px;background:#fff;box-shadow:0 0 12px rgba(0,0,0,.35)}
+.rtc-reveal .rv-handle{position:absolute;top:50%;left:var(--pos);transform:translate(-50%,-50%);width:96px;height:96px;border-radius:50%;background:var(--dark,#15293a);border:4px solid #fff;box-shadow:0 8px 24px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--green);font-family:'Yellowtail',cursive;font-size:30px;line-height:1}
+.rtc-reveal .rv-handle small{font-family:'Open Sans',sans-serif;font-size:13px;color:#fff;letter-spacing:.3em;margin-top:4px}
+.rtc-reveal .rv-lbl{position:absolute;bottom:18px;font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,7vw,56px);color:#fff;letter-spacing:.06em;text-shadow:0 2px 14px rgba(0,0,0,.65);transition:opacity .2s}
+.rtc-reveal .rv-l{left:18px}.rtc-reveal .rv-r{right:18px}
+.rtc-reveal::after{content:"";position:absolute;inset:60% 0 0 0;background:linear-gradient(transparent,rgba(13,41,58,.6));pointer-events:none}
+.rtc-reveal .rv-lbl{z-index:2}
+.rtc-reveal input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:ew-resize}
+.rv-cap{text-align:center;color:var(--muted);margin:.8rem 0 0}
+.rv-cap strong{color:var(--blue)}
+@keyframes rvhint{0%,100%{--pos:50%}}
+</style>
+</head><body>
+<main class="wrap" style="padding:1.5rem 0 3rem;max-width:1100px">
+  <p class="eyebrow" style="text-align:center">Preview, not on the homepage yet</p>
+  <div class="rtc-reveal" id="rtc-reveal">
+    <img class="rv-coast" alt="Seabrook and the Pacific at sunset" src="/.netlify/images?url=https%3A%2F%2Fwww.seabrookwa.com%2Fwp-content%2Fuploads%2F2022%2F03%2Fdrone-ocean-sky-town-wing-walker-sunset-aerial-town-hall.jpg-1.jpg&amp;w=1600&amp;q=72">
+    <img class="rv-rain" alt="Mossy old-growth trail in the Quinault Rain Forest" src="/.netlify/images?url=%2Fassets%2Fimg%2Frainforest-mossy-trail.jpg&amp;w=1200&amp;q=72">
+    <div class="rv-line"></div>
+    <span class="rv-lbl rv-l">Rainforest</span><span class="rv-lbl rv-r">Coast</span>
+    <div class="rv-handle" aria-hidden="true">to the<small>‹ ›</small></div>
+    <input type="range" min="0" max="100" value="50" aria-label="Slide between the rainforest and the coast">
+  </div>
+  <p class="rv-cap">Slide <strong><em style="font-family:Yellowtail,cursive;font-style:normal;color:var(--green);font-size:1.3em">to the</em></strong> to go from rainforest to coast. <strong>Less than an hour apart.</strong></p>
+</main>
+<script>
+(function(){
+  var box=document.getElementById('rtc-reveal'), rng=box.querySelector('input'), l=box.querySelector('.rv-l'), r=box.querySelector('.rv-r'), touched=false;
+  function set(p){p=Math.max(4,Math.min(96,p));box.style.setProperty('--pos',p+'%');rng.value=p;l.style.opacity=p<22?0:1;r.style.opacity=p>78?0:1;}
+  function fromX(x){var b=box.getBoundingClientRect();return (x-b.left)/b.width*100;}
+  var drag=false;
+  box.addEventListener('pointerdown',function(e){drag=true;touched=true;set(fromX(e.clientX));});
+  window.addEventListener('pointermove',function(e){if(drag)set(fromX(e.clientX));});
+  window.addEventListener('pointerup',function(){drag=false;});
+  box.addEventListener('touchmove',function(e){if(drag&&e.touches[0]){set(fromX(e.touches[0].clientX));}},{passive:true});
+  rng.addEventListener('input',function(){touched=true;set(+rng.value);});
+  // gentle hint so people see it moves
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var seq=[[50,0],[38,700],[62,1500],[50,2200]],t0;
+    var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();var s=performance.now();(function step(n){if(touched)return;var t=n-s,i=1;while(i<seq.length&&seq[i][1]<t)i++;if(i>=seq.length){set(50);return;}var a=seq[i-1],b=seq[i],k=(t-a[1])/(b[1]-a[1]);k=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;set(a[0]+(b[0]-a[0])*k);requestAnimationFrame(step);})(s);}},{threshold:.6});
+    setTimeout(function(){io.observe(box);},400);
+  }
+  set(50);
+})();
+</script>
+</body></html>
