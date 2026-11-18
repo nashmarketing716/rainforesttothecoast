@@ -344,3 +344,8 @@ legend{font-weight:700;font-size:.9rem;margin-bottom:.4rem}
 .video-card figcaption{text-align:center;color:var(--muted);margin-top:.9rem;font-size:1rem}
 .video-card figcaption strong{color:var(--blue)}
 @media (max-width:600px){.video-frame{border-radius:16px}.video-play{width:70px;height:70px}.video-play span{margin-left:27px;border-left-width:22px;border-top-width:13px;border-bottom-width:13px}}
+
+/* Play button: center the triangle (slight right nudge for optical balance) */
+.video-play{display:flex;align-items:center;justify-content:center;padding:0}
+.video-play span{margin:0 0 0 6px}
+@media (max-width:600px){.video-play span{margin:0 0 0 5px}}
