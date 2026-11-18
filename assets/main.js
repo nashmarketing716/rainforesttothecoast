@@ -204,3 +204,10 @@
   v.addEventListener('play', function () { frame.classList.add('playing'); if (window.dataLayer) window.dataLayer.push({ event: 'video_play', video: 'gh-30' }); });
   v.addEventListener('ended', function () { frame.classList.remove('playing'); });
 })();
+
+// ---------- Menu video link: scroll to the video and start it ----------
+(function () {
+  var link = document.querySelector('.nav-video'), v = document.getElementById('gh-video');
+  if (!link || !v) return;
+  link.addEventListener('click', function () { v.controls = true; var p = v.play(); if (p && p.catch) p.catch(function () {}); });
+})();
