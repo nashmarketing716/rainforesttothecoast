@@ -350,3 +350,10 @@
   [].forEach.call(boxes, function (c) { c.addEventListener('change', sync); });
   sync();
 })();
+
+// ---------- Trip planner: start on the current season ----------
+(function () {
+  var sel = document.querySelector('#planner-form select[name=season]'); if (!sel) return;
+  var m = new Date().getMonth();
+  sel.value = m === 11 || m < 2 ? 'winter' : m < 5 ? 'spring' : m < 8 ? 'summer' : 'fall';
+})();
